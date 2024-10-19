@@ -1,6 +1,10 @@
 /// <reference types = "cypress" />
 
 export const contaPage = {
+    validarUsuarioLogado() {
+        return cy.get('[data-testid="CustomerEmail"]')
+    },
+
     criarConta(primeiroNome, ultimoNome, telefone, email, senha, confirmacaoSenha) {
         cy.get('[data-testid="signUp"]').click()
         cy.get('[data-testid="firstName"]').type(primeiroNome)
