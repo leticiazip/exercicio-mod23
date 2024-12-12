@@ -1,0 +1,27 @@
+{
+	"success": true,
+	"cart": {
+		"_id": "67438a05c54bb9b4a17a461f",
+		"products": [
+			{
+				"productId": {
+					"_id": "671aa087094935897eaf9b6e",
+					"photos": [
+						"http://lojaebac.ebaconline.art.br/lojaebac/lojaebac/sandals1-1729798275927.webp",
+						"http://lojaebac.ebaconline.art.br/lojaebac/lojaebac/sandals2-1729798275928.webp"
+					],
+					"name": "Handmade Leather Donddi sandals For Women",
+					"price": 90,
+					"quantity": 9899,
+					"specialPrice": 83
+				},
+				"quantity": 3,
+				"_id": "6748d006c54bb9b4a17a4adb"
+			}
+		],
+		"userId": "6726d308094935897eb00e10",
+		"createdAt": "2024-11-24T20:18:13.273Z",
+		"updatedAt": "2024-11-28T20:19:47.079Z",
+		"__v": 0
+	}
+}

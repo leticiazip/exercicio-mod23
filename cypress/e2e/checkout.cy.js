@@ -1,17 +1,26 @@
 /// <reference types = "cypress" />
 
-const { primeiroNome, telefone } = require('../fixtures/data.json')
+import 'cypress-if'
+const { primeiroNome, telefone, email, senha } = require('../fixtures/data.json')
 
 describe('Checkout', () => {
 
   beforeEach(() => {
-    cy.setCookie('ebacStoreVersion', 'v2', { domain: 'lojaebac.ebaconline.art.br' })
-    cy.visit('/')
+    cy.login(email, senha)
   })
 
-  it('Deve realizar o checkout sem endereço previamente cadastrado', () => {
-    cy.addProdutoCarrinho('Mouse Gamer RGB')
-    cy.adicionarEndereco(primeiroNome, telefone, 'Rua Teste da Silva', 'São Paulo', 'RS', '01304-000')
-    cy.checkout()
+  it('Deve realizar o checkout', () => {
+    cy.addProdutoCarrinho('Eos V-Neck')
+    //Condição para verificar se já possui endereço cadastrado, se sim vai direto para o checkout, caso contrário, cadastra o primeiro endereço do cliente
+    cy.get('[data-testid="addressName"]')
+      .if('exist')
+      .then(() => {
+        cy.checkout()
+      })
+      .else()
+      .then(() => {
+        cy.adicionarEndereco(primeiroNome, telefone, 'Rua Teste', 'São Paulo', 'SP', '93546060')
+        cy.checkout()
+      })
   })
 })
